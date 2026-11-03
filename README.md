@@ -22,3 +22,10 @@ print(floor_log_b(2 ** 5000, 2))     # 5000
 
 - `floor_log_b(n: int, b: int) -> int` — floor of log base `b` of `n`.
 - `IntegerLogarithmError` — subclass of `ValueError`, raised on bad input.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
